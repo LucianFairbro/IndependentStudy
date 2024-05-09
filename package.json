@@ -1,0 +1,32 @@
+{
+  "name": "Brandeis_SAA_Express",
+  "version": "1.0.0",
+  "description": "This is my express project, I was slightly confused over what a CPA3 front end should look like, and I pretty much just imported the CPA4 pages in, obviously this time using an EJS method instead.",
+  "main": "index.js",
+  "author": "Lucian Fairbrother",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^5.1.0",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.3",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.0.1",
+    "nodemailer": "^6.9.8",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "socket.io": "^4.7.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "license": "ISC"
+}

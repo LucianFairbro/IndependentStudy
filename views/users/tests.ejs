@@ -1,0 +1,7 @@
+<h1><%= user.name %>'s Tests</h1>
+
+<% tests.forEach(function(test) { %>
+    <div>
+        <h2><a href="/tests/<%= test._id %>"><%= test.name %></a></h2>
+    </div>
+<% }) %>

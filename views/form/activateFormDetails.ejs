@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Activation Details Form</title>
+    <!-- Add any additional head elements and CSS links you need -->
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Activation Details Form</h1>
+    <!-- Applied to show selected category -->
+    <p>You have selected the <%= category %> category</p>
+
+    <form action="/submit-form" method="POST">
+        <!-- Hidden Field for Category -->
+        <input type="hidden" name="category" value="<%= category %>">
+
+        <% if(flash.success && flash.success.length > 0) { %>
+            <div class="alert alert-success"><%= flash.success %></div>
+        <% } %>
+        <% if(flash.error && flash.error.length > 0) { %>
+            <div class="alert alert-danger"><%= flash.error %></div>
+        <% } %>
+        <!-- Name Field -->
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <!-- Email Field -->
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <!-- Confirm Email -->
+        <div>
+            <label for="confirmEmail">Confirm Email:</label>
+            <input type="email" id="confirmEmail" name="confirmEmail" required oninput="validateEmail(document.getElementById('email'), this)">
+        </div>
+
+        <!-- Activation Code Field -->
+        <div>
+            <label for="activationCode">Activation Code:</label>
+            <input type="text" id="activationCode" name="activationCode" placeholder="Activation Code" required>
+        </div>
+
+        <!-- Submit Button -->
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+    <p><a href="/form/activate">Go Back</a></p>
+</div>
+
+<script>
+    function validateEmail(emailInput, confirmEmailInput) {
+        if (emailInput.value !== confirmEmailInput.value) {
+            confirmEmailInput.setCustomValidity('Email addresses do not match.');
+        } else {
+            confirmEmailInput.setCustomValidity('');
+        }
+    }
+</script>
+</body>
+</html>

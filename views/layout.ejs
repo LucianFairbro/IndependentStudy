@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <title>DNA Sequencing</title>
+        <link rel="icon" type="image/png" href="/MagnifyingGlass.png">
+</head>
+<body>
+<div class="container">
+        <header>
+                <div class="header-container">
+
+                        <img src="/MagnifyingGlass.png" alt="Our Logo" id="logo">
+
+                </div>
+                <div class="header-container">
+                        <h1>Fairbrother Lab</h1>
+
+
+                </div>
+
+                <nav>
+                        <ul>
+                                <li><a href="/">Home</a></li>
+
+                                <% if (user) { %>
+                                        <li><a href="/users/<%= user._id %>/tests"> <%= user.name %>'s Tests</a></li>
+                                        <li><a href="/form/activate">Submit DNACode</a></li>
+                                        <li><a href="/users/logout">Logout</a></li>
+                                <% } else { %>
+                                        <li><a href="/users/login">Signin</a></li>
+                                        <li><a href="/users/new">Signup</a></li>
+                                <% } %>
+                        </ul>
+                </nav>
+        </header>
+
+        <main>
+                <%- body %>
+        </main>
+        <footer>
+                <div id="social-media">
+                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+                        <a href="https://twitter.com/TotalGenetics">
+                                <button><i class="fab fa-twitter"></i></button>
+                        </a>
+                        <a href="https://instagram.com/TotalGenetics">
+                                <button><i class="fab fa-instagram"></i></button>
+                        </a>
+                </div>
+                <p>&copy; 2024 Total Genetics</p>
+        </footer>
+</div>
+</body>
+</html>
