@@ -1,0 +1,65 @@
+
+<html>
+
+<body>
+<div class="container">
+    <h1>Activate Test Kit</h1>
+    <form action="/submit-form" method="POST">
+        <% if(flash.success && flash.success.length > 0) { %>
+            <div class="alert alert-success"><%= flash.success %></div>
+        <% } %>
+        <% if(flash.error && flash.error.length > 0) { %>
+            <div class="alert alert-danger"><%= flash.error %></div>
+        <% } %>
+        <!-- Name Field -->
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <!-- Email Field -->
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <!-- Confirm Email -->
+        <div>
+            <label for="confirmEmail">Confirm Email:</label>
+            <input type="email" id="confirmEmail" name="confirmEmail" required>
+        </div>
+
+        <!-- Category Dropdown -->
+        <div>
+            <label for="category">Category:</label>
+            <select id="category" name="category">
+                <option value="dna_sequencing">Dog Sequencing</option>
+                <option value="gene_analysis">Microbiome Analysis</option>
+                <!-- Add other categories as necessary -->
+            </select>
+        </div>
+
+        <!-- Activation Code Field -->
+        <div>
+            <label for="activationCode">Activation Code:</label>
+            <input type="text" id="activationCode" name="activationCode" placeholder="Activation Code" required>
+        </div>
+
+        <!-- Submit Button -->
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+<script>
+    $(document).ready(function(){
+        $("form").on("submit", function(){
+            if($("#email").val() != $("#confirmEmail").val()){
+                alert("Emails do not match!");
+                return false; // stops the form from submitting
+            }
+        });
+    });
+</script>
+</body>
+</html>
